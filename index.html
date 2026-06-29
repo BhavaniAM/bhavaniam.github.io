@@ -190,42 +190,42 @@
     .hero-contacts svg { width: 14px; height: 14px; flex-shrink: 0; }
 
     /* ── Highlights strip ──────────────────────────────────── */
-    .highlights{
-        display:grid;
-        grid-template-columns:repeat(3,1fr);
-        gap:1rem;
-        background:none;
-        border:none;
-    }
-    
-    .highlight{
-        background:#fff;
-        border:1px solid var(--rule);
-        border-radius:6px;
-        padding:1.5rem;
-        transition:transform .2s ease;
-    }
-    
-    .highlight:hover{
-        transform:translateY(-2px);
-    }
-    
-    .highlight-num{
-        font-family:var(--serif);
-        font-size:1.8rem;
-        color:var(--accent);
-        margin-bottom:.5rem;
-    }
-    
-    .highlight-label{
-        font-size:.88rem;
-        line-height:1.5;
-    }
-    
-    .highlight-label span{
-        color:var(--accent-2);
-        font-size:.82rem;
-    }
+    .highlight-panel {
+          margin-top: 2rem;
+          padding: 1.6rem 1.8rem;
+          background: var(--surface);
+          border: 1px solid var(--rule);
+          border-left: 4px solid var(--accent);
+          border-radius: 4px;
+      }
+      
+      .highlight-panel h3 {
+          font-family: var(--serif);
+          font-size: 1.3rem;
+          color: var(--accent);
+          font-weight: 400;
+          margin-bottom: 1rem;
+      }
+      
+      .highlight-panel ul {
+          margin: 0;
+          padding-left: 1.2rem;
+      }
+      
+      .highlight-panel li {
+          margin-bottom: 0.8rem;
+          line-height: 1.7;
+          color: var(--ink);
+      }
+      
+      .highlight-panel li:last-child {
+          margin-bottom: 0;
+      }
+      
+      .highlight-panel strong {
+          color: var(--accent);
+          font-weight: 600;
+      }
 
     /* ── Summary ───────────────────────────────────────────── */
     .summary-text {
@@ -560,51 +560,14 @@
       </a>
     </div>
 
-    <!-- <div class="highlights">
-      <div class="highlight">
-        <div class="highlight-num">3</div>
-        <div class="highlight-label">Publications (1 journal, in press)</div>
-      </div>
-      <div class="highlight">
-        <div class="highlight-num">2 yrs</div>
-        <div class="highlight-label">Applied ML in industry</div>
-      </div>
-      <div class="highlight">
-        <div class="highlight-num">1.5 yrs</div>
-        <div class="highlight-label">Research experience</div>
-      </div>
-      <div class="highlight">
-        <div class="highlight-num">LLM/RAG</div>
-        <div class="highlight-label">+ CV, time series, anomaly detection</div>
-      </div>
+    <div class="highlight-panel">
+      <h3>Highlights</h3>
+      <ul>
+        <li><strong>3</strong> peer-reviewed publications, including <em>1 journal article in press</em>.</li>
+        <li><strong>3.5+ years</strong> of combined research and industry experience.</li>
+        <li>Experience building AI systems using <strong>LLMs, Retrieval-Augmented Generation (RAG), computer vision, anomaly detection,</strong> and <strong>time-series forecasting</strong>.</li>
+      </ul>
     </div>
-  </section> -->
-
-  <div class="highlights">
-    <div class="highlight">
-      <div class="highlight-num">3</div>
-      <div class="highlight-label">
-        Peer-reviewed publications<br>
-        <span>1 journal article in press</span>
-      </div>
-    </div>
-  
-    <div class="highlight">
-      <div class="highlight-num">3.5+</div>
-      <div class="highlight-label">
-        Years of research<br>
-        &amp; industry experience
-      </div>
-    </div>
-  
-    <div class="highlight">
-      <div class="highlight-num">LLMs</div>
-      <div class="highlight-label">
-        RAG • Computer Vision<br>
-        Time Series • Anomaly Detection
-      </div>
-    </div>
-  </div>
 
   <!-- Summary -->
   <section id="summary" class="fade-in">
