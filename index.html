@@ -48,7 +48,7 @@
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--rule);
     }
-    .nav-inner {
+    /* .nav-inner {
       max-width: var(--max);
       margin: 0 auto;
       padding: 0 var(--pad);
@@ -56,6 +56,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+    } */
+    .nav-inner {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 var(--pad);
+        height: 56px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .nav-home {
       font-size: 0.82rem;
@@ -505,7 +514,7 @@
 <body>
 
 <nav>
-  <div class="nav-inner">
+  <!-- <div class="nav-inner">
     <!-- <a class="nav-logo" href="#hero">Bhavani AM</a> -->
     <a class="nav-home" href="#hero">Home</a>
     <ul class="nav-links">
@@ -518,8 +527,22 @@
       <!-- <li><a href="#projects">Projects</a></li> -->
       <li><a href="#contact">Contact</a></li>
     </ul>
+  </div> -->
+  <div class="nav-inner">
+    <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#summary">About</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#awards">Recognition</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
   </div>
 </nav>
+
+  
 
 <main>
 
