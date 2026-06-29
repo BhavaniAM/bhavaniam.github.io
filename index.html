@@ -56,6 +56,19 @@
       align-items: center;
       justify-content: space-between;
     }
+    .nav-home {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    .nav-home:hover {
+      color: var(--accent-2);
+    }
     .nav-logo {
       font-family: var(--serif);
       font-size: 1.1rem;
@@ -492,7 +505,8 @@
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="#hero">Bhavani AM</a>
+    <!-- <a class="nav-logo" href="#hero">Bhavani AM</a> -->
+    <a class="nav-home" href="#hero">Home</a>
     <ul class="nav-links">
       <li><a href="#summary">About</a></li>
       <li><a href="#publications">Publications/Patents</a></li>
