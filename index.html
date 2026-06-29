@@ -190,34 +190,41 @@
     .hero-contacts svg { width: 14px; height: 14px; flex-shrink: 0; }
 
     /* ── Highlights strip ──────────────────────────────────── */
-    .highlights {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--rule);
-      border: 1px solid var(--rule);
-      border-radius: 4px;
-      overflow: hidden;
-      margin-top: 1.8rem;
+    .highlights{
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:1rem;
+        background:none;
+        border:none;
     }
-    .highlight {
-      background: var(--surface);
-      padding: 0.95rem 1.1rem;
+    
+    .highlight{
+        background:#fff;
+        border:1px solid var(--rule);
+        border-radius:6px;
+        padding:1.5rem;
+        transition:transform .2s ease;
     }
-    .highlight-num {
-      font-family: var(--serif);
-      font-size: 1.35rem;
-      color: var(--accent);
-      line-height: 1.2;
+    
+    .highlight:hover{
+        transform:translateY(-2px);
     }
-    .highlight-label {
-      font-size: 0.74rem;
-      color: var(--ink);
-      letter-spacing: 0.02em;
-      margin-top: 0.15rem;
+    
+    .highlight-num{
+        font-family:var(--serif);
+        font-size:1.8rem;
+        color:var(--accent);
+        margin-bottom:.5rem;
     }
-    @media (max-width: 600px) {
-      .highlights { grid-template-columns: repeat(2, 1fr); }
+    
+    .highlight-label{
+        font-size:.88rem;
+        line-height:1.5;
+    }
+    
+    .highlight-label span{
+        color:var(--accent-2);
+        font-size:.82rem;
     }
 
     /* ── Summary ───────────────────────────────────────────── */
@@ -553,7 +560,7 @@
       </a>
     </div>
 
-    <div class="highlights">
+    <!-- <div class="highlights">
       <div class="highlight">
         <div class="highlight-num">3</div>
         <div class="highlight-label">Publications (1 journal, in press)</div>
@@ -571,7 +578,33 @@
         <div class="highlight-label">+ CV, time series, anomaly detection</div>
       </div>
     </div>
-  </section>
+  </section> -->
+
+  <div class="highlights">
+    <div class="highlight">
+      <div class="highlight-num">3</div>
+      <div class="highlight-label">
+        Peer-reviewed publications<br>
+        <span>1 journal article in press</span>
+      </div>
+    </div>
+  
+    <div class="highlight">
+      <div class="highlight-num">3.5+</div>
+      <div class="highlight-label">
+        Years of research<br>
+        &amp; industry experience
+      </div>
+    </div>
+  
+    <div class="highlight">
+      <div class="highlight-num">LLMs</div>
+      <div class="highlight-label">
+        RAG • Computer Vision<br>
+        Time Series • Anomaly Detection
+      </div>
+    </div>
+  </div>
 
   <!-- Summary -->
   <section id="summary" class="fade-in">
