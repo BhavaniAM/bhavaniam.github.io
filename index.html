@@ -30,7 +30,8 @@
 
     :root,
     [data-theme="light"] {
-        --bg: #F7F5F2;
+        /* --bg: #F7F5F2;   */
+        --bg: #FAF9F6;
         --surface: #FFFFFF;
         --ink: #1A1A1A;
         --ink-2: #1A1A1A;
@@ -45,27 +46,24 @@
     }
 
     [data-theme="dark"] {
-    --bg: #161718;
-    --surface: #1E2022;
+      --bg: #15161A;
+      --surface: #1D1F25;
+      --ink: #EDEAE3;
+      --ink-2: #CFCBC3;
+      --ink-3: #A6A29A;
+      --muted: #8B877E;
+    
+      --accent: #C9A961;     /* muted brass/gold */
+      --accent-2: #8FA6C4;   /* dusty slate blue, secondary */
+    
+      --rule: #2C2E34;
+      --tag-bg: #262933;
+      --tag-ink: #D8C79A;
+    
+      --nav-bg: rgba(21,22,26,.93);
+    }
 
-    --ink: #ECE8E2;
-    --ink-2: #D6D2CC;
-    --ink-3: #B6B2AC;
-    --muted: #A6A29C;
-
-    /* Same navy family as light theme */
-    --accent: #7FA9D6;
-    --accent-2: #5E88B8;
-
-    --rule: #34373A;
-
-    --tag-bg: #2A2D31;
-    --tag-ink: #D8E6F5;
-
-    --nav-bg: rgba(22,23,24,.93);
-}
-
-    #theme-toggle {
+    /* #theme-toggle {
         border: 1px solid var(--rule);
         background: var(--surface);
         color: var(--ink);
@@ -79,7 +77,65 @@
         right: -60px;
         top: 50%;
         transform: translateY(-50%);
+    } */
+    
+    .bulb-toggle {
+      position: absolute;
+      right: -76px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
     }
+    
+    .toggle-track {
+      display: flex;
+      align-items: center;
+      width: 54px;
+      height: 28px;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 2px;
+    }
+    
+    .toggle-knob {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1px solid var(--rule);
+      transform: translateX(0);
+      transition: transform .3s ease, background-color .3s ease, border-color .3s ease, box-shadow .3s ease;
+    }
+    
+    .bulb-icon {
+      width: 14px;
+      height: 14px;
+      color: var(--ink-3);
+      transition: color .3s ease, filter .3s ease;
+    }
+    
+    .filament { opacity: 0; transition: opacity .3s ease; }
+    
+    [data-theme="dark"] .toggle-knob {
+      transform: translateX(26px);
+      background: #2A2620;
+      border-color: #C9A961;
+      box-shadow: 0 0 8px 2px rgba(201,169,97,0.55);
+    }
+    
+    [data-theme="dark"] .bulb-icon {
+      color: #C9A961;
+      filter: drop-shadow(0 0 3px rgba(201,169,97,.8));
+    }
+    
+    [data-theme="dark"] .filament { opacity: 1; }
     
     #theme-toggle:hover {
         background: var(--accent);
@@ -715,7 +771,20 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
-    <button id="theme-toggle" aria-label="Toggle dark mode"> 🌙 </button>
+    <!-- <button id="theme-toggle" aria-label="Toggle dark mode"> 🌙 </button> -->
+    <button id="theme-toggle" aria-label="Toggle dark mode" class="bulb-toggle">
+      <span class="toggle-track">
+        <span class="toggle-knob">
+          <svg class="bulb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M9 18h6"/>
+            <path d="M10 22h4"/>
+            <path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.05V17h6v-.25c0-.85.4-1.55 1-2.05A7 7 0 0 0 12 2Z"/>
+            <line class="filament" x1="10" y1="10" x2="14" y2="14"/>
+            <line class="filament" x1="14" y1="10" x2="10" y2="14"/>
+          </svg>
+        </span>
+      </span>
+  </button>
   </div>
 </nav>
 
@@ -1113,46 +1182,19 @@
 
 <script>
 const toggle = document.getElementById("theme-toggle");
-
-// Check if the user has previously selected a theme
 const savedTheme = localStorage.getItem("theme");
 
 if (savedTheme) {
-
-    document.documentElement.setAttribute("data-theme", savedTheme);
-
+  document.documentElement.setAttribute("data-theme", savedTheme);
 } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-
-    // Otherwise use the system preference
-    document.documentElement.setAttribute("data-theme", "dark");
-
+  document.documentElement.setAttribute("data-theme", "dark");
 }
 
-// Set the correct icon on page load
-toggle.textContent =
-    document.documentElement.getAttribute("data-theme") === "dark"
-        ? "☀️"
-        : "🌙";
-
 toggle.addEventListener("click", () => {
-
-    const current =
-        document.documentElement.getAttribute("data-theme");
-
-    if (current === "dark") {
-
-        document.documentElement.setAttribute("data-theme", "light");
-        localStorage.setItem("theme", "light");
-        toggle.textContent = "🌙";
-
-    } else {
-
-        document.documentElement.setAttribute("data-theme", "dark");
-        localStorage.setItem("theme", "dark");
-        toggle.textContent = "☀️";
-
-    }
-
+  const current = document.documentElement.getAttribute("data-theme");
+  const next = current === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", next);
+  localStorage.setItem("theme", next);
 });
 </script>
   
