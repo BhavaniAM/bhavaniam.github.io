@@ -43,6 +43,7 @@
         --tag-bg: #EAF0F7;
         --tag-ink: #1A3A5C;
         --nav-bg: rgba(242,239,234,.94);
+        --link: #1A66E0;
     }
 
     [data-theme="dark"] {
@@ -61,6 +62,7 @@
       --tag-ink: #D8C79A;
     
       --nav-bg: rgba(21,22,26,.93);
+      --link: #6BA8FF;
     }
 
     /* #theme-toggle {
@@ -274,12 +276,13 @@
       margin: 1.6rem 0 0.8rem;
     }
     .hero-tech span {
-      padding: .35rem .75rem;
-      border: 1px solid var(--rule);
+      padding: .35rem .8rem;
+      border: 1px solid var(--accent);
       border-radius: 999px;
-      background: var(--surface);
+      background: var(--tag-bg);
       font-size: .82rem;
-      color: var(--muted);
+      font-weight: 500;
+      color: var(--tag-ink);
     }
     .hero-button {
       display: inline-block;
@@ -337,7 +340,7 @@
       font-size: 0.9rem;
     }
     .hero-contacts a {
-      color: var(--accent-2);
+      color: var(--link);
       text-decoration: none;
       display: flex;
       align-items: center;
@@ -391,6 +394,16 @@
       font-weight: 300;
       line-height: 1.85;
       /* max-width: 680px; */
+    }
+
+    .summary-text,
+    .exp-bullets li,
+    .pub-text,
+    .award-desc,
+    .exp-context {
+      text-align: justify;
+      text-align-last: left;
+      hyphens: auto;
     }
 
     /* ── Experience ────────────────────────────────────────── */
@@ -477,7 +490,7 @@
     .pub-num {
       font-family: var(--serif);
       font-size: 1.1rem;
-      color: var(--rule);
+      color: var(--ink);
       line-height: 1.5;
     }
     .pub-text {
@@ -495,7 +508,7 @@
     }
     .pub-link {
       font-size: 0.85rem;
-      color: var(--accent-2);
+      color: var(--link);
       text-decoration: none;
       margin-top: 0.35rem;
       display: inline-flex;
@@ -542,7 +555,7 @@
       display: block;
     } */
 
-    .patent-status-inline{
+    /* .patent-status-inline{
       display:inline-block;
       margin-left:0.5rem;
       font-size:0.75rem;
@@ -550,6 +563,19 @@
       letter-spacing:0.05em;
       text-transform:uppercase;
       color:var(--accent-2);
+    } */
+
+    .patent-status-inline {
+      display: inline-block;
+      margin-left: 0.5rem;
+      background: var(--tag-bg);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .25rem .6rem;
+      border-radius: 999px;
     }
     
     .patent-list {
@@ -687,7 +713,7 @@
     .project-desc { font-size: 0.86rem; color: var(--ink); }
     .project-link {
       font-size: 0.82rem;
-      color: var(--accent-2);
+      color: var(--link);
       margin-top: auto;
       display: flex;
       align-items: center;
@@ -708,7 +734,7 @@
       gap: 1rem;
     }
     .cert-name { color: var(--ink); }
-    .cert-link { font-size: 0.82rem; color: var(--accent-2); text-decoration: none; white-space: nowrap; }
+    .cert-link { font-size: 0.82rem; color: var(--link); text-decoration: none; white-space: nowrap; }
     .cert-link:hover { text-decoration: underline; }
 
     /* ── Footer ────────────────────────────────────────────── */
@@ -862,10 +888,22 @@
     <!-- <p class="section-label">Research</p> -->
     <h2 class="section-title">Publications</h2>
     <div class="pub-list">
-      <div class="pub-item">
+      <!-- <div class="pub-item">
         <div class="pub-num">1.</div>
         <div class="pub-text">
           Suman Raj, <strong>Bhavani A Madhabhavi</strong>, Madhav Kumar, Prabhav Gupta, Yogesh Simmhan. "NeoARCADE: Robust Calibration for Distance Estimation to Support Assistive Drone for the Visually Impaired." <em>ACM Transactions on Cyber-Physical Systems (TCPS).</em> <span class="patent-status" style="margin-top:0;margin-left:0.3rem;">Accepted &middot; in press</span> &mdash; preprint version on <em>arXiv</em>.
+          <div class="pub-meta-row">
+            <a class="pub-link" href="https://arxiv.org/abs/2504.01988" target="_blank" rel="noopener"> https://arxiv.org/abs/2504.01988 </a>
+          </div>
+        </div>
+      </div> -->
+      <div class="pub-item">
+        <div class="pub-num">1.</div>
+        <div class="pub-text">
+          Suman Raj, <strong>Bhavani A Madhabhavi</strong>, Madhav Kumar, Prabhav Gupta, Yogesh Simmhan. "NeoARCADE: Robust Calibration for Distance Estimation to Support Assistive Drone for the Visually Impaired." <em>ACM Transactions on Cyber-Physical Systems (TCPS).</em>
+          <div style="margin-top:0.55rem;">
+            <span class="patent-status" style="margin:0;">Accepted &middot; in press</span>
+          </div>
           <div class="pub-meta-row">
             <a class="pub-link" href="https://arxiv.org/abs/2504.01988" target="_blank" rel="noopener"> https://arxiv.org/abs/2504.01988 </a>
           </div>
@@ -922,22 +960,26 @@
     <h2 class="section-title" style="margin-top:2.5rem;">Patents &amp; IP</h2>
       <div class="pub-list">
         <div class="pub-item">
-          <div class="pub-num">1.</div>
-          <div class="pub-text">
-            <strong>Parameter Analysis, Pattern Recognition and Prescriptive Recommendation/Advisory Agent.</strong>
-            Indian Patent Application No. 202641027518. Inventors (6), including <strong>Bhavani A Madhabhavi</strong>.
-            <span class="patent-status-inline">Filed · 9 Mar 2026</span>
+            <div class="pub-num">1.</div>
+            <div class="pub-text">
+              <strong>Parameter Analysis, Pattern Recognition and Prescriptive Recommendation/Advisory Agent.</strong>
+              Indian Patent Application No. 202641027518. Inventors (6), including <strong>Bhavani A Madhabhavi</strong>.
+              <div style="margin-top:0.5rem;">
+                <span class="patent-status-inline" style="margin-left:0;">Filed &middot; 9 Mar 2026</span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="pub-item">
-          <div class="pub-num">2.</div>
-          <div class="pub-text">
-            <strong>AI/ML-Driven Cybersecurity Threat Detection System.</strong>
-            Defensive publication; underlying work submitted to <em>ACSAC 2026</em>.
-            Inventors (5), including <strong>Bhavani A Madhabhavi</strong>.
-            <span class="patent-status-inline">Defensive publication · pending</span>
+          <div class="pub-item">
+            <div class="pub-num">2.</div>
+            <div class="pub-text">
+              <strong>AI/ML-Driven Cybersecurity Threat Detection System.</strong>
+              Defensive publication; underlying work submitted to <em>ACSAC 2026</em>.
+              Inventors (5), including <strong>Bhavani A Madhabhavi</strong>.
+              <div style="margin-top:0.5rem;">
+                <span class="patent-status-inline" style="margin-left:0;">Defensive publication &middot; pending</span>
+              </div>
+            </div>
           </div>
-        </div>
       </div>
     
 
