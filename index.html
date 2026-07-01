@@ -45,17 +45,25 @@
     }
 
     [data-theme="dark"] {
-        --bg: #121212;
-        --surface: #1d1d1d;
-        --ink: #ececec;
-        --muted: #b0b0b0;
-        --accent: #6ec6ff;
-        --accent-2: #8ab4f8;
-        --rule: #333;
-        --nav-bg: rgba(20,20,20,.92);
-        --tag-bg:#2b2b2b;
-        --tag-ink:#ececec;
-    }
+    --bg: #161718;
+    --surface: #1E2022;
+
+    --ink: #ECE8E2;
+    --ink-2: #D6D2CC;
+    --ink-3: #B6B2AC;
+    --muted: #A6A29C;
+
+    /* Same navy family as light theme */
+    --accent: #7FA9D6;
+    --accent-2: #5E88B8;
+
+    --rule: #34373A;
+
+    --tag-bg: #2A2D31;
+    --tag-ink: #D8E6F5;
+
+    --nav-bg: rgba(22,23,24,.93);
+}
 
     #theme-toggle {
         border: 1px solid var(--rule);
@@ -171,6 +179,9 @@
       margin-bottom: 2rem;
       padding-bottom: 0.75rem;
       border-bottom: 1px solid var(--rule);
+    }
+    [data-theme="dark"] .section-title {
+        color: #D8E2EC;
     }
 
     /* ── Hero ──────────────────────────────────────────────── */
